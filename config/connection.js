@@ -1,8 +1,11 @@
 require('dotenv').config()
 const { Sequelize } = require('sequelize')
 
-// TODO: Connect Sequelize
+const {DB_NAME, DB_USER, DB_PASSWORD} = process.env
 
-// TODO: Include DB connection credentials using ENV vars 
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+    host: 'localhost',
+    dialect: 'mysql'
+})
 
-// TODO: export your sequelize instance
+module.exports = sequelize
